@@ -1,0 +1,60 @@
+{% extends 'car_dealer_navbar.html' %}
+{% block title %} Customer Login {% endblock %}
+{% block css %}
+{% endblock %}
+{% block body %}
+<div class="container">
+    {% if car %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row mt-2">
+            <div class="form-group col-md-12">
+                <label><i style="font-weight: bold;">Car Name</i></label>
+                <input type="text" class="form-control" name="car_name" value="{{car.name}}" placeholder="Name of the Car">
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="form-group col-md-6">
+                <label><i style="font-weight: bold;">City</i></label><br />
+                <select name="city">
+                    <option value="{{car.location}}">{{car.location}}</option>
+                    {% for l in l %}                    
+                    <option value="{{l.city}}">{{l.city}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label><i style="font-weight: bold;">Car Image</i></label>
+                <input type="file" class="form-control" value="{{car.image}}" name="image">
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="form-group col-md-12">
+                <label><i style="font-weight: bold;">Capacity</i></label>
+                <input type="number" class="form-control" name="capacity" value="{{car.capacity}}" placeholder="Number of Seats">
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="form-group col-md-12">
+                <label><i style="font-weight: bold;">Rent</i></label>
+                <input type="number" class="form-control" name="rent" value="{{car.rent}}" placeholder="Rent (per day)">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </form>
+    {% endif %}
+</div>
+{% endblock %}
+{% block js %}
+<script>
+    {% if alert %}
+    alert("Car added successfully.")
+    document.location = "/add_car"
+    {% endif %}
+</script>
+{% endblock %}
+

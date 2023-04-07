@@ -1,0 +1,2 @@
+D:\Python Projects\CarRental\CarRental\obj\Any CPU\Debug\CarRental.pyproj.SuggestedBindingRedirects.cache
+D:\Python Projects\CarRental\CarRental\obj\Any CPU\Debug\CarRental.pyproj.CoreCompileInputs.cache
